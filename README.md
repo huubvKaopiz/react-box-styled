@@ -16,7 +16,6 @@ npm install react-box-styled
 import Box, { FlexBox, GridBox } from 'react-box-styled';
 
 <GridBox
-  display="grid"
   gridTemplateColumns="repeat(3, 1fr)"
   gridTemplateRows="auto"
   gap="10px"
@@ -28,14 +27,13 @@ import Box, { FlexBox, GridBox } from 'react-box-styled';
 </GridBox>
 
 <FlexBox
-  display="flex"
   direction="row"
   justify="space-between"
   align="center"
   gap="1rem"
   padding="10px"
 >
-  <Box>Item 1</Box>
+  <Box width="100px" textAlign="center">Item 1</Box>
   <Box>Item 2</Box>
   <Box>Item 3</Box>
 </FlexBox>
@@ -52,6 +50,10 @@ The `Box` component is a flexible container component that allows you to style a
 | `as`                  | `React.ElementType`   | Specifies the HTML element or React component to render. Defaults to a `div`.            |
 | `cursor`              | `string`              | Sets the mouse cursor style when hovering over the element (e.g., `pointer`, `default`). |
 | `width`               | `string`              | Defines the width of the element (e.g., `100%`, `200px`).                                |
+| `minWidth`               | `string`              | Defines the min-width of the element (e.g., `100%`, `200px`).                                |
+| `maxWidth`               | `string`              | Defines the max-width of the element (e.g., `100%`, `200px`).                                |
+| `minHeight`               | `string`              | Defines the min-height of the element (e.g., `100%`, `200px`).                                |
+| `maxHeight`               | `string`              | Defines the max-height of the element (e.g., `100%`, `200px`).                                |
 | `height`              | `string`              | Defines the height of the element (e.g., `100%`, `200px`).                               |
 | `padding`             | `string`              | Sets the padding inside the element (e.g., `10px`, `1rem`).                              |
 | `paddingX`            | `string`              | Sets the horizontal padding (`padding-left` and `padding-right`).                        |
