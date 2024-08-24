@@ -3,10 +3,18 @@ import styled from "@emotion/styled";
 import React from "react";
 
 export interface BoxProps {
-  as?: React.ElementType;
-  cursor?: string;
+  overflow?: "visible" | "hidden" | "scroll" | "auto";
+  overflowX?: string;
+  overflowY?: string;
+
   width?: string;
+  minWidth?: string;
+  maxWidth?: string;
+
   height?: string;
+  minHeight?: string;
+  maxHeight?: string;
+
   padding?: string;
   paddingX?: string;
   paddingY?: string;
@@ -14,6 +22,7 @@ export interface BoxProps {
   paddingBottom?: string;
   paddingLeft?: string;
   paddingRight?: string;
+
   margin?: string;
   marginX?: string;
   marginY?: string;
@@ -21,6 +30,7 @@ export interface BoxProps {
   marginRight?: string;
   marginTop?: string;
   marginBottom?: string;
+
   border?: string;
   borderX?: string;
   borderY?: string;
@@ -28,12 +38,14 @@ export interface BoxProps {
   borderRight?: string;
   borderBottom?: string;
   borderLeft?: string;
+
   background?: string;
   backgroundColor?: string;
   backgroundImage?: string;
   backgroundPosition?: string;
   backgroundSize?: string;
   backgroundRepeat?: string;
+
   color?: string;
   fontSize?: string;
   fontWeight?: string;
@@ -41,23 +53,28 @@ export interface BoxProps {
   textDecoration?: "none" | "underline" | "overline" | "line-through";
   textTransform?: "none" | "capitalize" | "uppercase" | "lowercase";
   lineHeight?: string;
+  whiteSpace?: "normal" | "nowrap" | "pre" | "pre-wrap" | "pre-line";
+  wordBreak?: "normal" | "break-all" | "keep-all" | "break-word";
+  textOverflow?: "clip" | "ellipsis";
+  textShadow?: string;
+  letterSpacing?: string;
+
   position?: "static" | "relative" | "absolute" | "fixed" | "sticky";
   top?: string;
   right?: string;
   bottom?: string;
   left?: string;
-  zIndex?: number;
+
   borderRadius?: string;
   borderTopLeftRadius?: string;
   borderTopRightRadius?: string;
   borderBottomLeftRadius?: string;
   borderBottomRightRadius?: string;
+
   style?: React.CSSProperties;
   children?: React.ReactNode;
-  overflow?: "visible" | "hidden" | "scroll" | "auto";
   className?: string;
-  overflowX?: string;
-  overflowY?: string;
+  as?: React.ElementType;
 
   display?:
     | "block"
@@ -85,18 +102,14 @@ export interface BoxProps {
     | "revert"
     | "unset";
   visibility?: "visible" | "hidden" | "collapse";
+
   opacity?: number;
   boxShadow?: string;
-  textShadow?: string;
   transition?: string;
   transform?: string;
   transformOrigin?: string;
   animation?: string;
   pointerEvents?: "auto" | "none";
-  whiteSpace?: "normal" | "nowrap" | "pre" | "pre-wrap" | "pre-line";
-  wordBreak?: "normal" | "break-all" | "keep-all" | "break-word";
-  textOverflow?: "clip" | "ellipsis";
-  letterSpacing?: string;
   userSelect?: "auto" | "none" | "text" | "contain" | "all";
   filter?: string;
   mixBlendMode?: string;
@@ -111,6 +124,8 @@ export interface BoxProps {
   verticalAlign?: string;
   resize?: "none" | "both" | "horizontal" | "vertical";
   appearance?: string;
+  cursor?: string;
+  zIndex?: number;
 }
 
 const BoxStyle = styled.div<BoxProps>`
@@ -119,7 +134,12 @@ const BoxStyle = styled.div<BoxProps>`
   overflow-x: ${(props) => props.overflowX || undefined};
   overflow-y: ${(props) => props.overflowY || undefined};
   width: ${(props) => props.width || undefined};
+  min-width: ${(props) => props.minWidth || undefined};
+  max-width: ${(props) => props.maxWidth || undefined};
+  width: ${(props) => props.width || undefined};
   height: ${(props) => props.height || undefined};
+  min-height: ${(props) => props.minHeight || undefined};
+  max-height: ${(props) => props.maxHeight || undefined};
   padding: ${(props) => props.padding || undefined};
   padding-left: ${(props) => props.paddingLeft || props.paddingX || undefined};
   padding-right: ${(props) =>
