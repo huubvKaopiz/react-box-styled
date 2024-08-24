@@ -58,6 +58,59 @@ export interface BoxProps {
   className?: string;
   overflowX?: string;
   overflowY?: string;
+
+  display?:
+    | "block"
+    | "inline"
+    | "inline-block"
+    | "flex"
+    | "grid"
+    | "inline-flex"
+    | "inline-grid"
+    | "none"
+    | "contents"
+    | "table"
+    | "table-row"
+    | "table-cell"
+    | "table-caption"
+    | "table-column"
+    | "table-column-group"
+    | "table-header-group"
+    | "table-footer-group"
+    | "table-row-group"
+    | "list-item"
+    | "run-in"
+    | "inherit"
+    | "initial"
+    | "revert"
+    | "unset";
+  visibility?: "visible" | "hidden" | "collapse";
+  opacity?: number;
+  boxShadow?: string;
+  textShadow?: string;
+  transition?: string;
+  transform?: string;
+  transformOrigin?: string;
+  animation?: string;
+  pointerEvents?: "auto" | "none";
+  whiteSpace?: "normal" | "nowrap" | "pre" | "pre-wrap" | "pre-line";
+  wordBreak?: "normal" | "break-all" | "keep-all" | "break-word";
+  textOverflow?: "clip" | "ellipsis";
+  letterSpacing?: string;
+  userSelect?: "auto" | "none" | "text" | "contain" | "all";
+  filter?: string;
+  mixBlendMode?: string;
+  backgroundClip?: "border-box" | "padding-box" | "content-box" | "text";
+  backgroundAttachment?: "scroll" | "fixed" | "local";
+  boxSizing?: "content-box" | "border-box";
+  outline?: string;
+  outlineOffset?: string;
+  content?: string;
+  float?: "left" | "right" | "none";
+  clear?: "left" | "right" | "both" | "none";
+  verticalAlign?: string;
+  resize?: "none" | "both" | "horizontal" | "vertical";
+  appearance?: string;
 }
 
 const BoxStyle = styled.div<BoxProps>`
@@ -116,6 +169,35 @@ const BoxStyle = styled.div<BoxProps>`
     props.borderBottomLeftRadius || props.borderRadius || undefined};
   border-bottom-right-radius: ${(props) =>
     props.borderBottomRightRadius || props.borderRadius || undefined};
+
+  display: ${(props) => props.display || undefined};
+  visibility: ${(props) => props.visibility || undefined};
+  opacity: ${(props) => props.opacity || undefined};
+  box-shadow: ${(props) => props.boxShadow || undefined};
+  text-shadow: ${(props) => props.textShadow || undefined};
+  transition: ${(props) => props.transition || undefined};
+  transform: ${(props) => props.transform || undefined};
+  transform-origin: ${(props) => props.transformOrigin || undefined};
+  animation: ${(props) => props.animation || undefined};
+  pointer-events: ${(props) => props.pointerEvents || undefined};
+  white-space: ${(props) => props.whiteSpace || undefined};
+  word-break: ${(props) => props.wordBreak || undefined};
+  text-overflow: ${(props) => props.textOverflow || undefined};
+  letter-spacing: ${(props) => props.letterSpacing || undefined};
+  user-select: ${(props) => props.userSelect || undefined};
+  filter: ${(props) => props.filter || undefined};
+  mix-blend-mode: ${(props) => props.mixBlendMode || undefined};
+  background-clip: ${(props) => props.backgroundClip || undefined};
+  background-attachment: ${(props) => props.backgroundAttachment || undefined};
+  box-sizing: ${(props) => props.boxSizing || undefined};
+  outline: ${(props) => props.outline || undefined};
+  outline-offset: ${(props) => props.outlineOffset || undefined};
+  content: ${(props) => props.content || undefined};
+  float: ${(props) => props.float || undefined};
+  clear: ${(props) => props.clear || undefined};
+  vertical-align: ${(props) => props.verticalAlign || undefined};
+  resize: ${(props) => props.resize || undefined};
+  appearance: ${(props) => props.appearance || undefined};
 `;
 
 const Box: React.FC<BoxProps> = ({ children, ...props }) => {

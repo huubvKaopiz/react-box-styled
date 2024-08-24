@@ -104,6 +104,34 @@ The `Box` component is a flexible container component that allows you to style a
 | `className`           | `string`              | Allows passing a custom class name to the element for additional styling.                |
 | `overflowX`           | `string`              | Controls horizontal overflow behavior.                                                   |
 | `overflowY`           | `string`              | Controls vertical overflow behavior.                                                     |
+| `display`        | `"block" \| "inline" \| ...`                      | Sets the display type of the element (e.g., `block`, `inline`, `none`).                      |
+| `visibility`     | `"visible" \| "hidden" \| ...`                    | Controls the visibility of the element.                                                      |
+| `opacity`        | `number`                                          | Sets the opacity level of the element, with `1` being fully opaque and `0` fully transparent.|
+| `boxShadow`      | `string`                                          | Adds a shadow effect to the element's box.                                                   |
+| `textShadow`     | `string`                                          | Adds a shadow effect to the text within the element.                                         |
+| `transition`     | `string`                                          | Defines the transition effects when CSS properties change.                                   |
+| `transform`      | `string`                                          | Applies a transformation to the element (e.g., `rotate`, `scale`).                           |
+| `transformOrigin`| `string`                                          | Sets the origin point for transformations.                                                   |
+| `animation`      | `string`                                          | Specifies the animation(s) to be applied to the element.                                     |
+| `cursor`         | `string`                                          | Sets the mouse cursor style when hovering over the element (e.g., `pointer`, `default`).     |
+| `pointerEvents`  | `"auto" \| "none"`                                | Specifies how an element responds to pointer events.                                         |
+| `whiteSpace`     | `"normal" \| "nowrap" \| ...`                     | Controls how whitespace inside the element is handled.                                       |
+| `wordBreak`      | `"normal" \| "break-all" \| ...`                  | Specifies how words should break when reaching the end of a line.                            |
+| `textOverflow`   | `"clip" \| "ellipsis"`                            | Controls how text that overflows the element's box is rendered.                              |
+| `letterSpacing`  | `string`                                          | Sets the spacing between characters in the text.                                             |
+| `userSelect`     | `"auto" \| "none" \| ...`                         | Determines whether the text inside the element can be selected.                              |
+| `filter`         | `string`                                          | Applies visual effects like blur or color shift to the element.                              |
+| `mixBlendMode`   | `string`                                          | Defines how an element's content should blend with its background.                           |
+| `backgroundClip` | `"border-box" \| "padding-box" \| "content-box" \| "text"` | Specifies the painting area of the background.                                |
+| `outline`        | `string`                                          | Sets the outline around the element, typically used for focus styles.                        |
+| `outlineOffset`  | `string`                                          | Defines the distance between the outline and the element's border edge.                      |
+| `content`        | `string`                                          | Specifies the content to be inserted before or after an element using `::before` or `::after`.|
+| `float`          | `"left" \| "right" \| "none"`                     | Determines the float behavior of the element.                                                |
+| `clear`          | `"left" \| "right" \| "both" \| "none"`           | Specifies the sides of the element where floating elements are not allowed.                  |
+| `verticalAlign`  | `string`                                          | Sets the vertical alignment of an inline or table-cell element.                              |
+| `resize`         | `"none" \| "both" \| "horizontal" \| "vertical"`  | Controls the resizability of an element.                                                     |
+| `appearance`     | `string`                                          | Controls the styling of an element based on the operating system's native appearance.        |
+
 
 
 # FlexBox Component
