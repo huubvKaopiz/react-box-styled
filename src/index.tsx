@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
-import React from "react";
+import React, { HTMLAttributes } from "react";
 
-export interface BoxProps {
+export interface BoxProps extends HTMLAttributes<HTMLElement> {
   overflow?: "visible" | "hidden" | "scroll" | "auto";
   overflowX?: string;
   overflowY?: string;
@@ -71,9 +71,6 @@ export interface BoxProps {
   borderBottomLeftRadius?: string;
   borderBottomRightRadius?: string;
 
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
-  className?: string;
   as?: React.ElementType;
 
   display?:
