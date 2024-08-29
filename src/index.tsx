@@ -3,9 +3,9 @@ import styled from "@emotion/styled";
 import React, { HTMLAttributes } from "react";
 
 export interface BoxProps extends HTMLAttributes<HTMLElement> {
-  overflow?: "visible" | "hidden" | "scroll" | "auto";
-  overflowX?: string;
-  overflowY?: string;
+  overflow?: "visible" | "hidden" | "scroll" | "auto" | "clip";
+  overflowX?: "visible" | "hidden" | "scroll" | "auto" | "clip";
+  overflowY?: "visible" | "hidden" | "scroll" | "auto" | "clip";
 
   width?: string;
   minWidth?: string;
@@ -48,7 +48,6 @@ export interface BoxProps extends HTMLAttributes<HTMLElement> {
 
   color?: string;
   fontSize?: string;
-  fontWeight?: string;
   textAlign?: "left" | "center" | "right" | "justify";
   textDecoration?: "none" | "underline" | "overline" | "line-through";
   textTransform?: "none" | "capitalize" | "uppercase" | "lowercase";
@@ -109,7 +108,25 @@ export interface BoxProps extends HTMLAttributes<HTMLElement> {
   pointerEvents?: "auto" | "none";
   userSelect?: "auto" | "none" | "text" | "contain" | "all";
   filter?: string;
-  mixBlendMode?: string;
+  mixBlendMode?:
+    | "normal"
+    | "multiply"
+    | "screen"
+    | "overlay"
+    | "darken"
+    | "lighten"
+    | "color-dodge"
+    | "color-burn"
+    | "hard-light"
+    | "soft-light"
+    | "difference"
+    | "exclusion"
+    | "hue"
+    | "saturation"
+    | "color"
+    | "luminosity"
+    | "initial"
+    | "inherit";
   backgroundClip?: "border-box" | "padding-box" | "content-box" | "text";
   backgroundAttachment?: "scroll" | "fixed" | "local";
   boxSizing?: "content-box" | "border-box";
@@ -123,9 +140,161 @@ export interface BoxProps extends HTMLAttributes<HTMLElement> {
   appearance?: string;
   cursor?: string;
   zIndex?: number;
+
+  aspectRatio?: string;
+  isolation?: string;
+  objectFit?: "fill" | "contain" | "cover" | "none" | "scale-down";
+  objectPosition?:
+    | "top left"
+    | "top center"
+    | "top right"
+    | "center left"
+    | "center center"
+    | "center right"
+    | "bottom left"
+    | "bottom center"
+    | "bottom right";
+  overscrollBehavior?: "auto" | "contain" | "none";
+  overscrollBehaviorY?: "auto" | "contain" | "none";
+  overscrollBehaviorX?: "auto" | "contain" | "none";
+  fontFamily?: string;
+  fontStyle?: "normal" | "italic" | "oblique" | "initial" | "inherit";
+  fontWeight?: "normal" | "bold" | "bolder" | "lighter" | number;
+  fontVariantNumeric?:
+    | "normal"
+    | "ordinal"
+    | "slashed-zero"
+    | "lining-nums"
+    | "oldstyle-nums"
+    | "proportional-nums"
+    | "tabular-nums"
+    | "diagonal-fractions"
+    | "stacked-fractions"
+    | "ruby"
+    | "initial"
+    | "inherit";
+  listStyleImage?: string;
+  listStylePosition?: "inside" | "outside";
+  listStyleType?:
+    | "disc"
+    | "circle"
+    | "square"
+    | "decimal"
+    | "decimal-leading-zero"
+    | "lower-roman"
+    | "upper-roman"
+    | "lower-greek"
+    | "lower-alpha"
+    | "upper-alpha"
+    | "lower-latin"
+    | "upper-latin"
+    | "none";
+  textDecorationColor?: string;
+  textDecorationStyle?: "solid" | "double" | "dotted" | "dashed" | "wavy";
+  textDecorationThickness?: string | number;
+  textUnderlineOffset?: string | number;
+  textWrap?: "normal" | "none" | "balance" | "avoid" | "wrap";
+  textIndent?: string | number;
+  hyphens?: "none" | "manual" | "auto";
+  backgroundOrigin?: "border-box" | "padding-box" | "content-box";
+  backgroundBlendMode?:
+    | "normal"
+    | "multiply"
+    | "screen"
+    | "overlay"
+    | "darken"
+    | "lighten"
+    | "color-dodge"
+    | "color-burn"
+    | "hard-light"
+    | "soft-light"
+    | "difference"
+    | "exclusion"
+    | "hue"
+    | "saturation"
+    | "color"
+    | "luminosity"
+    | "initial"
+    | "inherit";
+  backdropFilter?: string; // e.g., 'blur(5px)', 'brightness(0.5)', 'contrast(150%)'
+  borderCollapse?: "collapse" | "separate";
+  borderSpacing?: string | number;
+  tableLayout?: "auto" | "fixed";
+  captionSide?: "top" | "bottom";
+  transitionProperty?: string; // e.g., 'all', 'opacity', 'transform'
+  transitionDuration?: string; // e.g., '0.3s', '500ms'
+  transitionTimingFunction?:
+    | "linear"
+    | "ease"
+    | "ease-in"
+    | "ease-out"
+    | "ease-in-out"
+    | string;
+  transitionDelay?: string; // e.g., '0s', '200ms'
+  accentColor?: string;
+  caretColor?: string;
+  scrollBehavior?: "auto" | "smooth";
+  scrollMargin?: string | number; // e.g., '10px', '2em'
+  scrollPadding?: string | number; // e.g., '10px', '2em'
+  scrollSnapAlign?: "start" | "end" | "center" | "none";
+  scrollSnapStop?: "normal" | "always";
+  scrollSnapType?: "none" | "x" | "y" | "block" | "inline" | "both";
+  touchAction?:
+    | "auto"
+    | "none"
+    | "manipulation"
+    | "pan-x"
+    | "pan-y"
+    | "pinch-zoom";
+  willChange?: string; // e.g., 'transform', 'opacity', 'scroll-position'
 }
 
 const BoxStyle = styled.div<BoxProps>`
+  accent-color: ${(props) => props.accentColor || undefined};
+  caret-color: ${(props) => props.caretColor || undefined};
+  scroll-behavior: ${(props) => props.scrollBehavior || undefined};
+  scroll-margin: ${(props) => props.scrollMargin || undefined};
+  scroll-padding: ${(props) => props.scrollPadding || undefined};
+  scroll-snap-align: ${(props) => props.scrollSnapAlign || undefined};
+  scroll-snap-stop: ${(props) => props.scrollSnapStop || undefined};
+  scroll-snap-type: ${(props) => props.scrollSnapType || undefined};
+  touch-action: ${(props) => props.touchAction || undefined};
+  will-change: ${(props) => props.willChange || undefined};
+  border-collapse: ${(props) => props.borderCollapse || undefined};
+  border-spacing: ${(props) => props.borderSpacing || undefined};
+  table-layout: ${(props) => props.tableLayout || undefined};
+  caption-side: ${(props) => props.captionSide || undefined};
+  transition-property: ${(props) => props.transitionProperty || undefined};
+  transition-duration: ${(props) => props.transitionDuration || undefined};
+  transition-timing-function: ${(props) =>
+    props.transitionTimingFunction || undefined};
+  transition-delay: ${(props) => props.transitionDelay || undefined};
+  backdrop-filter: ${(props) => props.backdropFilter || undefined};
+  background-blend-mode: ${(props) => props.backgroundBlendMode || undefined};
+  background-origin: ${(props) => props.backgroundOrigin || undefined};
+  hyphens: ${(props) => props.hyphens || undefined};
+  text-decoration-color: ${(props) => props.textDecorationColor || undefined};
+  text-decoration-style: ${(props) => props.textDecorationStyle || undefined};
+  text-decoration-thickness: ${(props) =>
+    props.textDecorationThickness || undefined};
+  text-underline-offset: ${(props) => props.textUnderlineOffset || undefined};
+  text-wrap: ${(props) => props.textWrap || undefined};
+  text-indent: ${(props) => props.textIndent || undefined};
+  list-style-type: ${(props) => props.listStyleType || undefined};
+  list-style-position: ${(props) => props.listStylePosition || undefined};
+  list-style-image: ${(props) => props.listStyleImage || undefined};
+  font-variant-numeric: ${(props) => props.fontVariantNumeric || undefined};
+  font-weight: ${(props) => props.fontWeight || undefined};
+  font-style: ${(props) => props.fontStyle || undefined};
+  font-family: ${(props) => props.fontFamily || undefined};
+  overscroll-behavior: ${(props) => props.overscrollBehavior || undefined};
+  overscroll-behavior-y: ${(props) => props.overscrollBehaviorY || undefined};
+  overscroll-behavior-y: ${(props) => props.overscrollBehaviorY || undefined};
+  overscroll-behavior-x: ${(props) => props.overscrollBehaviorX || undefined};
+
+  object-fit: ${(props) => props.objectFit || undefined};
+  object-position: ${(props) => props.objectPosition || undefined};
+
   cursor: ${(props) => props.cursor || undefined};
   overflow: ${(props) => props.overflow || undefined};
   overflow-x: ${(props) => props.overflowX || undefined};
@@ -166,7 +335,6 @@ const BoxStyle = styled.div<BoxProps>`
   background-repeat: ${(props) => props.backgroundRepeat || undefined};
   color: ${(props) => props.color || undefined};
   font-size: ${(props) => props.fontSize || undefined};
-  font-weight: ${(props) => props.fontWeight || undefined};
   text-align: ${(props) => props.textAlign || undefined};
   text-decoration: ${(props) => props.textDecoration || undefined};
   text-transform: ${(props) => props.textTransform || undefined};
@@ -215,6 +383,10 @@ const BoxStyle = styled.div<BoxProps>`
   vertical-align: ${(props) => props.verticalAlign || undefined};
   resize: ${(props) => props.resize || undefined};
   appearance: ${(props) => props.appearance || undefined};
+
+  aspect-ratio: ${(props) => props.aspectRatio || undefined};
+  box-sizing: ${(props) => props.boxSizing || undefined};
+  isolation: ${(props) => props.isolation || undefined};
 `;
 
 const Box: React.FC<BoxProps> = ({ children, ...props }) => {
@@ -242,6 +414,11 @@ export interface FlexBoxProps extends BoxProps {
     | "space-between"
     | "space-around"
     | "space-evenly";
+  flexBasis?: string | number;
+  flexGrow?: number;
+  flexShrink?: number;
+  flex?: string | number;
+  order?: number;
 }
 
 const FlexBoxStyle = styled(Box)<FlexBoxProps>`
@@ -253,6 +430,11 @@ const FlexBoxStyle = styled(Box)<FlexBoxProps>`
   align-items: ${(props) => props.align || undefined};
   align-content: ${(props) => props.alignContent || undefined};
   gap: ${(props) => props.gap || undefined};
+  flex-basis: ${(props) => props.flexBasis || undefined};
+  flex-grow: ${(props) => props.flexGrow || undefined};
+  flex-shrink: ${(props) => props.flexShrink || undefined};
+  flex: ${(props) => props.flex || undefined};
+  order: ${(props) => props.order || undefined};
 `;
 
 export const FlexBox: React.FC<FlexBoxProps> = (props) => {
@@ -291,6 +473,39 @@ export interface GridBoxProps extends BoxProps {
   alignSelf?: "auto" | "start" | "end" | "center" | "stretch";
   gap?: string;
   gridArea?: string;
+  placeContent?:
+    | "center"
+    | "start"
+    | "end"
+    | "stretch"
+    | "space-between"
+    | "space-around"
+    | "space-evenly"
+    | "baseline"
+    | "first baseline"
+    | "last baseline"
+    | "initial"
+    | "inherit";
+  placeItems?:
+    | "center"
+    | "start"
+    | "end"
+    | "stretch"
+    | "baseline"
+    | "first baseline"
+    | "last baseline"
+    | "initial"
+    | "inherit";
+  placeSelf?:
+    | "center"
+    | "start"
+    | "end"
+    | "stretch"
+    | "baseline"
+    | "first baseline"
+    | "last baseline"
+    | "initial"
+    | "inherit";
 }
 
 const GridBoxStyle = styled(Box)<GridBoxProps>`
@@ -311,6 +526,9 @@ const GridBoxStyle = styled(Box)<GridBoxProps>`
   align-self: ${(props) => props.alignSelf || undefined};
   gap: ${(props) => props.gap || undefined};
   grid-area: ${(props) => props.gridArea || undefined};
+  place-content: ${(props) => props.placeContent || undefined};
+  place-items: ${(props) => props.placeItems || undefined};
+  place-self: ${(props) => props.placeSelf || undefined};
 `;
 
 export const GridBox: React.FC<GridBoxProps> = (props) => {
